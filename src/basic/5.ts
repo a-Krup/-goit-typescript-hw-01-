@@ -1,21 +1,24 @@
-type DayOfWeek =
-  | "Monday"
-  | "Tuesday"
-  | "Wednesday"
-  | "Thursday"
-  | "Friday"
-  | "Saturday"
-  | "Sunday";
+enum DayOfWeek {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
 
 const isWeekend = (day: DayOfWeek): boolean => {
-  if (day === "Saturday" || day === "Sunday") {
-    console.log(`${day} — це вихідний день.`);
+  const dayName = DayOfWeek[day];
+
+  if (day === DayOfWeek.Saturday || day === DayOfWeek.Sunday) {
+    console.log(`${dayName} — це вихідний день.`);
     return true;
   } else {
-    console.log(`${day} — це робочий день.`);
+    console.log(`${dayName} — це робочий день.`);
     return false;
   }
 };
 
-isWeekend("Monday");
-isWeekend("Sunday");
+isWeekend(DayOfWeek.Monday);
+isWeekend(DayOfWeek.Sunday);
